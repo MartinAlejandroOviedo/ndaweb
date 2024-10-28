@@ -1,12 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
-    <h2>NDA Web</h2>
+    <head>
+        <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>NDA Webs | Expert Web Development & Design Solutions</title>
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content="NDA Webs | Soluciones Profesionales en Diseño y Desarrollo Web">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://ndaweb.com.ar">
+        <meta property="og:image" content="http://ndaweb.com.ar/iconos/logofixed.svg">
+        <meta property="og:description" content="Transforma tu negocio en línea con nuestros servicios de diseño y desarrollo web personalizados.">
+        <meta property="og:site_name" content="NDA Webs">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="NDA Webs | Soluciones Profesionales en Diseño y Desarrollo Web">
+        <meta name="twitter:description" content="Soluciones personalizadas en desarrollo y diseño web para llevar tu presencia en línea al siguiente nivel.">
+        <meta name="twitter:image" content="http://ndaweb.com.ar/iconos/logofixed.svg">
+        <meta name="twitter:url" content="http://ndaweb.com.ar">
+        <!-- Author -->
+        <meta name="author" content="Martín Alejandro Oviedo">
+        <!-- Contact Info -->
+        <meta name="email" content="claciudad@gmail.com">
+        <!-- Bootstrap 5 CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="bg-light py-3">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Reemplazo del texto por una imagen SVG --><a class="navbar-brand" href="#"> <img src="iconos/logofixed.svg" alt="Logo de NDA Webs" style="height: 50px;"> </a>
+                    <!-- Botón hamburguesa personalizado para móviles (visible en pantallas pequeñas) -->
+                    <button class="navbar-toggler d-lg-none" type="button" id="navbar-toggle">
+                        <img src="iconos/menu.png" alt="Menú" style="height: 30px;">
+                    </button>
+                    <!-- Menú tradicional (visible en pantallas más grandes) -->
+                    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#services" class="nav-link">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#portfolio" class="nav-link">Portafolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#about" class="nav-link">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#contact" class="nav-link">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Menú de navegación oculto (solo visible en móviles) -->
+                    <div id="side-menu" class="side-menu">
+                        <!-- Imagen arriba del menú -->
+                        <div class="text-center py-3">
+                            <img src="iconos/logogris.svg" alt="Logo gris" style="height: 60px; margin-bottom: 20px;">
+                        </div>
+                        <ul class="nav flex-column text-end">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#services" class="nav-link">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#portfolio" class="nav-link">Portafolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#about" class="nav-link">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#contact" class="nav-link">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Hero Section -->
+        <section class="d-flex align-items-center bg-dark text-white py-5" style="background-image: url('your-image-or-video-url-here'); background-size: cover; background-position: center; background-color: #ffffff;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Imagen o dibujo moderno alineado a la izquierda -->
+                    <div class="col-md-6 text-center text-md-start">
+                        <img src="iconos/dragon.png" alt="Dibujo moderno" class="img-fluid" style="max-width: 100%;">
+                    </div>
+                    <!-- Texto alineado a la derecha -->
+                    <div class="col-md-6 text-md-end text-center">
+                        <h2>Tu Negocio, Nuestro Compromiso</h2>
+                        <h1>Soluciones Profesionales en Diseño y Desarrollo Web</h1>
+                        <p class="lead">Lleva tu presencia en línea al siguiente nivel con sitios web modernos, rápidos y personalizados.</p><a href="#contact" class="btn btn-gradient btn-lg mt-3">Solicita un Presupuesto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section id="services" class="py-5">
+            <div class="container">
+                <h2 class="text-center">Nuestros Servicios</h2>
+                <p class="text-center">En NDA Webs, ofrecemos soluciones personalizadas para impulsar tu negocio en línea.</p>
+                <div class="row">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Desarrollo en WordPress -->
+                                <img src="iconos/wordpress.png" alt="Desarrollo en WordPress" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Desarrollo en WordPress</h5>
+                                <p class="card-text">Creamos temas y plugins a medida, además de brindar mantenimiento completo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Diseño Web -->
+                                <img src="iconos/disenoresponsivo.png" alt="Diseño Web" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Diseño Web</h5>
+                                <p class="card-text">Diseños responsivos y optimizados para móviles, enfocados en la conversión.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Soluciones E-commerce -->
+                                <img src="iconos/E-commerce.png" alt="Soluciones E-commerce" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Soluciones E-commerce</h5>
+                                <p class="card-text">Desarrollo de tiendas online, integración de pasarelas de pago y más.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Hosting y Dominio -->
+                                <img src="iconos/hosting.png" alt="Hosting y Dominio" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Hosting y Dominio</h5>
+                                <p class="card-text">Ofrecemos planes de hosting confiables con dominio personalizado incluido.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Seguridad Web -->
+                                <img src="iconos/seguridad.png" alt="Seguridad Web" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Seguridad Web</h5>
+                                <p class="card-text">Implementación de certificados SSL y medidas de seguridad avanzadas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de SEO y Optimización -->
+                                <img src="iconos/seo.png" alt="SEO y Optimización" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">SEO y Optimización</h5>
+                                <p class="card-text">Mejora de la visibilidad en motores de búsqueda con estrategias SEO.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Desarrollo de Apps Móviles -->
+                                <img src="iconos/app.png" alt="Desarrollo de Apps Móviles" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Desarrollo de Apps Móviles</h5>
+                                <p class="card-text">Aplicaciones móviles nativas y web apps para iOS y Android.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Integración de Bases de Datos -->
+                                <img src="iconos/basededatos.png" alt="Integración de Bases de Datos" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Integración de Bases de Datos</h5>
+                                <p class="card-text">Gestión e integración de bases de datos para proyectos a medida.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="card border-0 shadow-sm text-center">
+                            <div class="card-body">
+                                <!-- Imagen cuadrada de Emails Corporativos -->
+                                <img src="iconos/emailcorporativo.png" alt="Emails Corporativos" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                                <h5 class="card-title">Emails Corporativos</h5>
+                                <p class="card-text">Configuración de emails profesionales personalizados con tu dominio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2>Nuestro Portafolio</h2>
+            <p>Explora algunos de nuestros proyectos recientes y descubre cómo hemos ayudado a negocios como el tuyo a destacar en línea.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
+                        <!-- Imagen con border-radius -->
+                        <img src="iconos/moda.jpeg" alt="Rediseño Web para Marca de Moda" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
+                        <h5>Rediseño Web para Marca de Moda</h5>
+                        <p>Renovamos por completo el sitio web de una marca de moda, mejorando su experiencia de usuario y diseño visual.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
+                        <!-- Imagen con border-radius -->
+                        <img src="iconos/tienda.jpeg" alt="Desarrollo E-commerce para Retail" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
+                        <h5>Desarrollo E-commerce para Retail</h5>
+                        <p>Construimos una tienda en línea con integración de pasarelas de pago y gestión de inventario para un cliente de retail.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
+                        <!-- Imagen con border-radius -->
+                        <img src="iconos/startup.jpeg" alt="Aplicación Web Personalizada para Startup" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
+                        <h5>Aplicación Web Personalizada para Startup</h5>
+                        <p>Desarrollamos una solución a medida para una startup, mejorando su productividad y escalabilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Imagen o dibujo moderno alineado a la izquierda -->
+                <div class="col-md-6 text-center text-md-start">
+                    <img src="iconos/astro.png" alt="Dibujo moderno sobre resiliencia" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <!-- Texto alineado a la derecha -->
+                <div class="col-md-6 text-md-end">
+                    <h2>Nuestra Historia</h2>
+                    <p>En NDA Web, somos resilientes. Cada proyecto es una oportunidad de renacer, como el ave fénix, llevando nuestra pasión por las soluciones web a nuevos niveles.</p>
+                    <h5>Martín Oviedo</h5>
+                    <p>Fundador & CEO</p>
+                    <p>Después de superar varios desafíos de salud, NDA Web es el resultado de una visión que renace continuamente, aportando soluciones digitales de calidad y resultados reales. Puedes encontrarnos en <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> y <a href="https://www.google.com/maps" target="_blank">Google Places</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Contáctanos</h2>
+            <p class="text-center">¿Listo para transformar tu presencia en línea? Escríbenos para hablar sobre tu proyecto.</p>
+            <div class="row align-items-center">
+                <!-- Columna del formulario -->
+                <div class="col-md-6">
+                    <form action="mailto:claciudad@gmail.com" method="post" enctype="text/plain">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <!-- Columna de la imagen -->
+                <div class="col-md-6 text-center">
+                    <img src="iconos/sirena.png" alt="Imagen de Sirena" class="img-fluid" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>O escríbenos directamente a: <a href="mailto:claciudad@gmail.com">claciudad@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Map Section -->
+    <section id="map" class="py-5"> 
+        <div class="container text-center">
+            <h2>Nuestra Ubicación</h2>
+            <div id="mapid" style="height: 500px;border-radius:8px;"></div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <p><b>&copy; 2023 NDA Webs. Todos los derechos reservados.</b></p>
+            <p>Dirección: Paseo Colón 1011, San Telmo, Buenos Aires, Argentina.</p>
+            <p>Teléfonos: <a href="tel:+541166001811">1166001811</a> | <a href="tel:+542216221261">2216221261</a></p>
+            <p>Horario de atención: Lunes a Viernes, de 10 a 18 hs.</p>
+            <p><a href="#">Términos del Servicio</a> | <a href="#">Política de Privacidad</a></p>
+            <div><a href="#" class="me-2"><i class="fab fa-linkedin"></i></a><a href="#" class="me-2"><i class="fab fa-twitter"></i></a><a href="#" class="me-2"><i class="fab fa-facebook"></i></a><a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Inicializa el mapa y establece las coordenadas y el zoom
+        var map = L.map('mapid', {
+            zoomControl: false, // Oculta los controles de zoom
+            dragging: false,    // Desactiva el arrastre del mapa
+            scrollWheelZoom: false, // Desactiva el zoom con la rueda del ratón
+            doubleClickZoom: false, // Desactiva el zoom con doble clic
+            boxZoom: false, // Desactiva la opción de zoom por arrastre de caja
+            keyboard: false, // Desactiva la interacción del mapa con el teclado
+            tap: false, // Desactiva el zoom en dispositivos táctiles
+            attributionControl: false // Oculta los créditos del mapa
+        }).setView([-34.619334, -58.368959], 15);
+    
+        // Cargar el tile layer en blanco y negro desde CartoDB
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            maxZoom: 18
+        }).addTo(map);
+    
+        // Crear un icono personalizado con la imagen SVG
+        var customIcon = L.icon({
+            iconUrl: 'iconos/marker.svg',
+            iconSize: [80, 80], // tamaño del marcador
+            iconAnchor: [40, 80], // punto del marcador que se anclará al mapa
+            popupAnchor: [0, -80] // posición del popup en relación al icono
+        });
+    
+        // Agregar el marcador con el icono personalizado
+        L.marker([-34.619334, -58.368959], {icon: customIcon}).addTo(map);
+    </script>
+    <script>
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        document.body.appendChild(overlay);
+    
+        navbarToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('open');
+            overlay.style.display = 'block'; // Muestra el fondo semi-transparente
+        });
+    
+        // Cerrar el menú cuando se haga clic en el overlay
+        overlay.addEventListener('click', () => {
+            sideMenu.classList.remove('open');
+            overlay.style.display = 'none'; // Oculta el fondo semi-transparente
+        });
+    </script>
 </body>
-</html>
