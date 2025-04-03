@@ -1,454 +1,936 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  img-src 'self' data: https:;
-  font-src 'self' https://fonts.gstatic.com;
-  style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://fonts.googleapis.com;
-  style-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://fonts.googleapis.com;
-  script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net blob:;
-  script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net blob:;
-  connect-src 'self' https://www.google-analytics.com https://overbridgenet.com;">
-        <meta name="description" content="NDA Webs - Diseño y desarrollo web profesional para impulsar tu negocio en línea. Contáctanos para soluciones personalizadas de alta calidad.">
-        <title>NDA Webs | Expert Web Development & Design Solutions</title>
-        <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="NDA Webs | Soluciones Profesionales en Diseño y Desarrollo Web">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="http://ndaweb.com.ar">
-        <meta property="og:image" content="http://ndaweb.com.ar/iconos/logofixed.svg">
-        <meta property="og:description" content="Transforma tu negocio en línea con nuestros servicios de diseño y desarrollo web personalizados.">
-        <meta property="og:site_name" content="NDA Webs">
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="NDA Webs | Soluciones Profesionales en Diseño y Desarrollo Web">
-        <meta name="twitter:description" content="Soluciones personalizadas en desarrollo y diseño web para llevar tu presencia en línea al siguiente nivel.">
-        <meta name="twitter:image" content="http://ndaweb.com.ar/iconos/logofixed.svg">
-        <meta name="twitter:url" content="http://ndaweb.com.ar">
-        <!-- Author -->
-        <meta name="author" content="Martín Alejandro Oviedo">
-        <!-- Contact Info -->
-        <meta name="email" content="claciudad@gmail.com">
-        <!-- Bootstrap 5 CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-        <link href="css/theme.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <!-- Header Section -->
-        <header class="bg-light py-3">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <!-- Reemplazo del texto por una imagen SVG --><a class="navbar-brand" href="#"> <img src="iconos/logofixed.svg" alt="Logo de NDA Webs" style="height: 50px;"> </a>
-                    <!-- Botón hamburguesa personalizado para móviles (visible en pantallas pequeñas) -->
-                    <button class="navbar-toggler d-lg-none" type="button" id="navbar-toggle">
-                        <img src="iconos/menu.png" alt="Menú" style="height: 30px;">
-                    </button>
-                    <!-- Menú tradicional (visible en pantallas más grandes) -->
-                    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#services" class="nav-link">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#portfolio" class="nav-link">Portafolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#about" class="nav-link">Nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#contact" class="nav-link">Contacto</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Menú de navegación oculto (solo visible en móviles) -->
-                    <div id="side-menu" class="side-menu">
-                        <!-- Imagen arriba del menú -->
-                        <div class="text-center py-3">
-                            <img src="iconos/logogris.svg" alt="Logo gris" style="height: 60px; margin-bottom: 20px;">
-                        </div>
-                        <ul class="nav flex-column text-end">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#services" class="nav-link">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#portfolio" class="nav-link">Portafolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#about" class="nav-link">Nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#contact" class="nav-link">Contacto</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="KeepToken (KTK) es una criptomoneda estable respaldada 1:1 por USDT, diseñada para proteger el ahorro de las personas trabajadoras, emprendedores y comercios.">
+    <title>KeepToken - Guarda tu Futuro</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="KeepToken | La Criptomoneda de Ahorro">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://keeptoken.com">
+    <meta property="og:image" content="https://keeptoken.com/assets/favicon.svg">
+    <meta property="og:description" content="La criptomoneda de ahorro pensada para la gente común. KeepToken (KTK) es una criptomoneda estable respaldada 1:1 por USDT.">
+    <meta property="og:site_name" content="KeepToken">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KeepToken | La Criptomoneda de Ahorro">
+    <meta name="twitter:description" content="La criptomoneda de ahorro pensada para la gente común. KeepToken (KTK) es una criptomoneda estable respaldada 1:1 por USDT.">
+    <meta name="twitter:image" content="https://keeptoken.com/assets/favicon.svg">
+    <meta name="twitter:url" content="https://keeptoken.com">
+    
+    <!-- Author -->
+    <meta name="author" content="Martin Alejandro Oviedo">
+    <meta name="email" content="contacto@keeptoken.com">
+    
+    <!-- Styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="/node_modules/gsap/dist/gsap.min.js" type="text/javascript"></script>
+    <script src="/node_modules/gsap/dist/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" type="text/javascript"></script>
+
+    <style>
+        @property --rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
+        :root {
+            --card-height: 65vh;
+            --card-width: calc(var(--card-height) / 1.5);
+            --size: 20px;
+            /* Paleta de colores neón */
+            --neon-blue: #00f3ff;
+            --neon-cyan: #00ffcc;
+            --neon-purple: #bc13fe;
+            --neon-pink: #ff2d95;
+            --neon-green: #39ff14;
+            --neon-yellow: #f7ff00;
+            --dark-bg: rgba(10, 10, 10, 0.8);
+            --card-bg: rgba(26, 26, 26, 0.8);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .text-content {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .text-gray-300 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+
+        .text-gray-400 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .font-bold {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .neon-text {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue),
+                         0 0 20px var(--neon-blue),
+                         0 0 30px var(--neon-blue);
+        }
+        
+        .neon-border {
+            position: relative;
+            border-radius: 8px;
+            padding: 20px;
+            background: linear-gradient(0deg, #000, #272727);
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .neon-border::before, .neon-border::after {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            background: linear-gradient(45deg, 
+                var(--neon-blue),
+                var(--neon-cyan),
+                var(--neon-green),
+                var(--neon-yellow),
+                var(--neon-pink),
+                var(--neon-purple),
+                var(--neon-blue),
+                var(--neon-cyan),
+                var(--neon-green),
+                var(--neon-yellow)
+            );
+            background-size: 400%;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            z-index: -1;
+            animation: steam 20s linear infinite;
+            border-radius: 8px;
+        }
+
+        .neon-border::after {
+            filter: blur(0px);
+        }
+
+        @keyframes steam {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 400% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: rgba(17, 17, 34, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+
+        .hero-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                from 180deg at 50% 70%,
+                var(--neon-blue) 0deg,
+                var(--neon-cyan) 72deg,
+                var(--neon-green) 144deg,
+                var(--neon-yellow) 216deg,
+                var(--neon-pink) 288deg,
+                var(--neon-purple) 360deg
+            );
+            mask: radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size), 
+                  url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+            mask-composite: intersect;
+            animation: flicker 20s infinite linear;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 65%;
+            height: 250px;
+            user-select: none;
+            background: rgb(47 47 47 / 0%);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .hero-title {
+            font: 400 19vh "Varela Round", sans-serif;
+            color: var(--neon-blue);
+            text-shadow: 0 0 1vw var(--neon-blue),
+                         0 0 3vw var(--neon-blue),
+                         0 0 10vw var(--neon-blue),
+                         0 0 10vw var(--neon-blue),
+                         0 0 .4vw var(--neon-cyan),
+                         .5vw .5vw .1vw var(--dark-bg);
+            animation: neon 1s ease infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title span {
+            animation: blink linear infinite 2s;
+        }
+
+        .hero-title span:nth-of-type(2) {
+            animation: blink linear infinite 3s;
+        }
+
+        .hero-subtitle {
+            font: 400 4vh "Varela Round", sans-serif;
+            color: var(--neon-green);
+            text-shadow: 0 0 1vw var(--neon-green),
+                         0 0 3vw var(--neon-green),
+                         0 0 10vw var(--neon-green),
+                         0 0 10vw var(--neon-green),
+                         0 0 .4vw var(--neon-yellow),
+                         .5vw .5vw .1vw var(--dark-bg);
+            animation: neon 1s ease infinite;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-button {
+            width: 200px;
+            height: 50px;
+            border-radius: 180px;
+            position: relative;
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+            cursor: pointer;
+            line-height: 12px;
+            margin: 2rem auto 0;
+            display: block;
+            z-index: 2;
+        }
+
+        .hero-button:before {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            display: block;
+            width: 80%;
+            height: 70%;
+            top: 15%;
+            left: 10%;
+            transition: 0.3s opacity ease-in-out;
+            filter: blur(15px);
+            opacity: 0;
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+        }
+
+        .hero-button:hover:before {
+            opacity: 1;
+            transition: 0.3s opacity ease-in-out;
+            filter: blur(25px);
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+        }
+
+        .hero-button:after {
+            content: 'Descubre más';
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            color: rgba(235,235,235,1);
+            font-weight: bold;
+            z-index: 5;
+            position: absolute;
+            display: block;
+            border-radius: 180px;
+            width: 92%;
+            height: 80%;
+            top: 10%;
+            left: 4%;
+            background-color: var(--dark-bg);
+        }
+
+        @keyframes flicker {
+            to {
+                mask-position: 50% 50%, 0 50%;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            width: 100%;
+            height: 100%;
+            padding: 3px;
+            position: relative;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: 1.5em;
+            color: var(--neon-green);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .card::before {
+            content: "";
+            width: 104%;
+            height: 102%;
+            border-radius: 8px;
+            background-image: linear-gradient(
+                var(--rotate),
+                var(--neon-green),
+                var(--neon-yellow) 43%,
+                var(--neon-cyan)
+            );
+            position: absolute;
+            z-index: -1;
+            top: -1%;
+            left: -2%;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card::after {
+            position: absolute;
+            content: "";
+            top: calc(var(--card-height) / 6);
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.8);
+            filter: blur(calc(var(--card-height) / 6));
+            background-image: linear-gradient(
+                var(--rotate),
+                var(--neon-green),
+                var(--neon-yellow) 43%,
+                var(--neon-cyan)
+            );
+            opacity: 0.8;
+            animation: spin 2.5s linear infinite;
+        }
+
+        @keyframes blink {
+            78% {
+                color: inherit;
+                text-shadow: inherit;
+            }
+            79% {
+                color: #333;
+            }
+            80% {
+                text-shadow: none;
+            }
+            81% {
+                color: inherit;
+                text-shadow: inherit;
+            }
+            82% {
+                color: #333;
+                text-shadow: none;
+            }
+            83% {
+                color: inherit;
+                text-shadow: inherit;
+            }
+            92% {
+                color: #333;
+                text-shadow: none;
+            }
+            92.5% {
+                color: inherit;
+                text-shadow: inherit;
+            }
+        }
+
+        /* Actualizar también los botones del formulario */
+        button[type="submit"] {
+            width: 200px;
+            height: 50px;
+            border-radius: 180px;
+            position: relative;
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+            cursor: pointer;
+            line-height: 12px;
+            margin: 0 auto;
+            display: block;
+            border: none;
+        }
+
+        button[type="submit"]:before {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            display: block;
+            width: 80%;
+            height: 70%;
+            top: 15%;
+            left: 10%;
+            transition: 0.3s opacity ease-in-out;
+            filter: blur(15px);
+            opacity: 0;
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+        }
+
+        button[type="submit"]:hover:before {
+            opacity: 1;
+            transition: 0.3s opacity ease-in-out;
+            filter: blur(25px);
+            background: linear-gradient(60deg, var(--neon-blue), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+        }
+
+        button[type="submit"]:after {
+            content: 'Enviar mensaje';
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            color: rgba(235,235,235,1);
+            font-weight: bold;
+            z-index: 5;
+            position: absolute;
+            display: block;
+            border-radius: 180px;
+            width: 92%;
+            height: 80%;
+            top: 10%;
+            left: 4%;
+            background-color: var(--dark-bg);
+        }
+
+        .neon-tag {
+            position: relative;
+            border-radius: 8px;
+            background: transparent;
+            width: fit-content;
+            font-family: 'Inter', sans-serif;
+            font-weight: lighter;
+            font-size: 9px;
+            line-height: 1.25rem;
+            display: inline-block;
+            padding: 0px 4px;
+            border: solid 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .neon-tag.blue {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+        }
+
+        .neon-tag.pink {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+        }
+
+        .neon-tag.green {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+        }
+
+        .neon-tag.blue:hover {
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 45px var(--neon-blue);
+        }
+
+        .neon-tag.pink:hover {
+            text-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 45px var(--neon-pink);
+        }
+
+        .neon-tag.green:hover {
+            text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green), 0 0 45px var(--neon-green);
+        }
+
+        #blogcard {
+            overflow: hidden;
+        }
+
+        /* Flickering animation */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px var(--neon-blue),
+                            0 0 11px var(--neon-blue),
+                            0 0 19px var(--neon-blue),
+                            0 0 40px var(--neon-blue),
+                            0 0 80px var(--neon-blue),
+                            0 0 90px var(--neon-blue),
+                            0 0 100px var(--neon-blue),
+                            0 0 150px var(--neon-blue);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .section-title {
+            font: 400 4vh "Varela Round", sans-serif;
+            color: #85d1ff;
+            text-shadow: 0 0 1vw var(--neon-purple),
+                         0 0 3vw var(--neon-purple),
+                         0 0 10vw var(--neon-purple),
+                         0 0 10vw var(--neon-purple),
+                         0 0 .4vw var(--neon-pink),
+                         .5vw .5vw .1vw var(--dark-bg);
+            animation: neon 1s ease infinite, flicker 1.5s infinite alternate;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        @keyframes neon {
+            0%, 100% {
+                text-shadow: 0 0 1vw var(--neon-purple),
+                            0 0 3vw var(--neon-purple),
+                            0 0 10vw var(--neon-purple),
+                            0 0 10vw var(--neon-purple),
+                            0 0 .4vw var(--neon-pink),
+                            .5vw .5vw .1vw var(--dark-bg);
+            }
+            50% {
+                text-shadow: 0 0 .5vw var(--neon-purple),
+                            0 0 1.5vw var(--neon-purple),
+                            0 0 5vw var(--neon-purple),
+                            0 0 5vw var(--neon-purple),
+                            0 0 .2vw var(--neon-pink),
+                            .5vw .5vw .1vw var(--dark-bg);
+            }
+        }
+
+        .blog-title {
+            font: 400 2.5vh "Varela Round", sans-serif;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 1vw var(--neon-cyan),
+                         0 0 3vw var(--neon-cyan),
+                         0 0 10vw var(--neon-cyan),
+                         0 0 10vw var(--neon-cyan),
+                         0 0 .4vw var(--neon-blue),
+                         .5vw .5vw .1vw var(--dark-bg);
+            animation: neon 1s ease infinite, flicker 1.5s infinite alternate;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            font: 400 2vh "Varela Round", sans-serif;
+            color: var(--neon-blue);
+            text-shadow: 0 0 1vw var(--neon-blue),
+                         0 0 3vw var(--neon-blue),
+                         0 0 10vw var(--neon-blue),
+                         0 0 10vw var(--neon-blue),
+                         0 0 .4vw var(--neon-cyan),
+                         .5vw .5vw .1vw var(--dark-bg);
+            animation: neon 1s ease infinite, flicker 1.5s infinite alternate;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 0 20px var(--neon-green),
+                       0 0 40px var(--neon-green),
+                       0 0 60px var(--neon-green);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-button i {
+            font-size: 35px;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--neon-green),
+                       0 0 60px var(--neon-green),
+                       0 0 90px var(--neon-green);
+        }
+
+        .whatsapp-button {
+            animation: pulse 2s infinite;
+        }
+
+        #hero {
+            display: none;
+        }
+
+        #hero canvas {
+            display: block;
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Estilos para los campos del formulario */
+        .gradient-border {
+            position: relative;
+            width: 100%;
+            padding: 0.8rem;
+            background: #1D1F20;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            --borderWidth: 3px;
+        }
+
+        .gradient-border:after {
+            content: '';
+            position: absolute;
+            top: calc(-1 * var(--borderWidth));
+            left: calc(-1 * var(--borderWidth));
+            height: calc(100% + var(--borderWidth) * 2);
+            width: calc(100% + var(--borderWidth) * 2);
+            background: linear-gradient(60deg, 
+                var(--neon-blue),
+                var(--neon-cyan),
+                var(--neon-green),
+                var(--neon-yellow),
+                var(--neon-pink),
+                var(--neon-purple),
+                var(--neon-blue),
+                var(--neon-cyan)
+            );
+            border-radius: calc(2 * var(--borderWidth));
+            z-index: -1;
+            animation: animatedgradient 3s ease alternate infinite;
+            background-size: 300% 300%;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .gradient-border:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .gradient-border::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neon-cyan);
+            font-weight: 500;
+            text-shadow: 0 0 5px var(--neon-cyan);
+        }
+
+        @keyframes animatedgradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Asegurar que el formulario tenga el espacio correcto */
+        #contacto form {
+            background: rgba(17, 17, 34, 0.5);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Ajustar el textarea */
+        textarea.gradient-border {
+            min-height: 120px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold neon-text">KeepToken</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-neon-blue transition-colors">Inicio</a>
+                    <a href="#caracteristicas" class="hover:text-neon-blue transition-colors">Características</a>
+                    <a href="#gobernanza" class="hover:text-neon-blue transition-colors">Gobernanza</a>
+                    <a href="#blog" class="hover:text-neon-blue transition-colors">Blog</a>
+                    <a href="#contacto" class="hover:text-neon-blue transition-colors">Contacto</a>
+                </div>
+                <button class="md:hidden text-2xl">
+                    <i class='bx bx-menu'></i>
+                </button>
             </div>
-        </header>
-        <!-- Hero Section -->
-        <section class="d-flex align-items-center bg-dark text-white py-5" style="background-image: url('your-image-or-video-url-here'); background-size: cover; background-position: center; background-color: #ffffff;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Imagen o dibujo moderno alineado a la izquierda -->
-                    <div class="col-md-6 text-center text-md-start">
-                        <img src="iconos/dragon.png" alt="Dibujo moderno" class="img-fluid" style="max-width: 100%;">
+        </nav>
+    </header>
+
+    <main class="relative z-10">
+        <section id="inicio" class="hero-container">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>K</span>eep<span>T</span>oken
+                </h1>
+                <p class="hero-subtitle">La nueva era de los tokens está aquí</p>
+                <a href="#caracteristicas" class="hero-button">
+                    Descubre más
+                </a>
+            </div>
+        </section>
+
+        <div id="hero" class="min-h-screen flex items-center justify-center relative">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content container mx-auto px-4">
+                <h1 class="hero-title mb-8">KeepToken</h1>
+                <p class="hero-subtitle mb-12">La criptomoneda de ahorro pensada para la gente común</p>
+                <a href="#caracteristicas" class="hero-button neon-border">
+                    Comenzar
+                </a>
+            </div>
+        </div>
+
+        <section id="caracteristicas" class="min-h-screen py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center neon-text section-title">Características</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Característica 1: Valor Estable -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-dollar-circle text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Valor Estable</h3>
+                        </div>
+                        <p class="text-gray-300">Cada token KTK está respaldado 1:1 por USDT, garantizando estabilidad y confianza. No hay emisión descontrolada: los tokens se acuñan al comprarse y se queman al venderse.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag blue">Estabilidad</span>
+                            <span class="neon-tag green">Seguridad</span>
+                        </div>
                     </div>
-                    <!-- Texto alineado a la derecha -->
-                    <div class="col-md-6 text-md-end text-center">
-                        <h2>Tu Negocio, Nuestro Compromiso</h2>
-                        <h1>Soluciones Profesionales en Diseño y Desarrollo Web</h1>
-                        <p class="lead">Lleva tu presencia en línea al siguiente nivel con sitios web modernos, rápidos y personalizados.</p><a href="#contact" class="btn btn-gradient btn-lg mt-3">Solicita un Presupuesto</a>
+
+                    <!-- Característica 2: Comisiones Ultra Bajas -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-transfer-alt text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Comisiones Ultra Bajas</h3>
+                        </div>
+                        <p class="text-gray-300">La comisión inicial es del 0.49% por operación, ajustable por la comunidad validada, y siempre con un tope del 1%. Transacciones instantáneas y económicas.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag blue">Económico</span>
+                            <span class="neon-tag pink">Rápido</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 3: Tu Colchón Digital -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-wallet text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Tu Colchón Digital</h3>
+                        </div>
+                        <p class="text-gray-300">KTK es una caja de ahorro en tu bolsillo. No necesitás banco. No necesitás permiso. Lo usás como quieras: para guardar, enviar, cobrar o gastar.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag green">Accesible</span>
+                            <span class="neon-tag blue">Flexible</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 4: Seguridad Blockchain -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-lock-alt text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Seguridad Blockchain</h3>
+                        </div>
+                        <p class="text-gray-300">Construido sobre la red Polygon, con contratos inteligentes auditados y múltiples capas de verificación para garantizar la seguridad de tus tokens.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag green">Auditado</span>
+                            <span class="neon-tag blue">Seguro</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 5: Escalabilidad -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-line-chart text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Escalabilidad</h3>
+                        </div>
+                        <p class="text-gray-300">Diseñado para manejar millones de transacciones diarias sin comprometer la seguridad. Arquitectura optimizada para el crecimiento.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag pink">Rendimiento</span>
+                            <span class="neon-tag blue">Crecimiento</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 6: Interoperabilidad -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-network-chart text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Interoperabilidad</h3>
+                        </div>
+                        <p class="text-gray-300">Integración con múltiples plataformas y servicios. Compatible con wallets populares y exchanges principales. Fácil acceso y uso.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag green">Integración</span>
+                            <span class="neon-tag blue">Accesibilidad</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 7: Transparencia -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-show-alt text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Transparencia Total</h3>
+                        </div>
+                        <p class="text-gray-300">Todas las transacciones son públicas y verificables en la blockchain. Auditorías regulares y reportes transparentes de reservas.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag pink">Verificable</span>
+                            <span class="neon-tag blue">Auditable</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 8: Educación -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-book-open text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Educación Financiera</h3>
+                        </div>
+                        <p class="text-gray-300">Recursos educativos y herramientas para aprender sobre finanzas descentralizadas. Comunidad activa de apoyo y aprendizaje.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag green">Aprendizaje</span>
+                            <span class="neon-tag blue">Comunidad</span>
+                        </div>
+                    </div>
+
+                    <!-- Característica 9: Sostenibilidad -->
+                    <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                        <div class="flex items-center mb-4">
+                            <i class='bx bx-leaf text-3xl mr-3 neon-text'></i>
+                            <h3 class="text-xl font-bold neon-text">Sostenibilidad</h3>
+                        </div>
+                        <p class="text-gray-300">Operamos en Polygon, una red eficiente energéticamente. Comprometidos con el desarrollo sostenible y responsable.</p>
+                        <div class="mt-4">
+                            <span class="neon-tag green">Eficiente</span>
+                            <span class="neon-tag blue">Responsable</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Services Section -->
-        <section id="services" class="py-5">
-            <div class="container">
-                <h2 class="text-center">Nuestros Servicios</h2>
-                <p class="text-center">En NDA Webs, ofrecemos soluciones personalizadas para impulsar tu negocio en línea.</p>
-                <div class="row">
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Desarrollo en WordPress -->
-                                <img src="iconos/wordpress.png" alt="Desarrollo en WordPress" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Desarrollo en WordPress</h5>
-                                <p class="card-text">Creamos temas y plugins a medida, además de brindar mantenimiento completo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Diseño Web -->
-                                <img src="iconos/disenoresponsivo.png" alt="Diseño Web" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Diseño Web</h5>
-                                <p class="card-text">Diseños responsivos y optimizados para móviles, enfocados en la conversión.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Soluciones E-commerce -->
-                                <img src="iconos/E-commerce.png" alt="Soluciones E-commerce" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Soluciones E-commerce</h5>
-                                <p class="card-text">Desarrollo de tiendas online, integración de pasarelas de pago y más.</p>
-                            </div>
-                        </div>
-                    </div>
+
+        <section id="gobernanza" class="min-h-screen py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-4 text-center neon-text section-title">Gobernanza Democrática</h2>
+                <p class="text-xl text-gray-300 mb-12 text-center max-w-3xl mx-auto">
+                    Un sistema de gobernanza diseñado para dar voz a la comunidad y asegurar decisiones transparentes y justas.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <!-- Las características de gobernanza se cargarán dinámicamente -->
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Hosting y Dominio -->
-                                <img src="iconos/hosting.png" alt="Hosting y Dominio" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Hosting y Dominio</h5>
-                                <p class="card-text">Ofrecemos planes de hosting confiables con dominio personalizado incluido.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Seguridad Web -->
-                                <img src="iconos/seguridad.png" alt="Seguridad Web" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Seguridad Web</h5>
-                                <p class="card-text">Implementación de certificados SSL y medidas de seguridad avanzadas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de SEO y Optimización -->
-                                <img src="iconos/seo.png" alt="SEO y Optimización" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">SEO y Optimización</h5>
-                                <p class="card-text">Mejora de la visibilidad en motores de búsqueda con estrategias SEO.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Desarrollo de Apps Móviles -->
-                                <img src="iconos/app.png" alt="Desarrollo de Apps Móviles" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Desarrollo de Apps Móviles</h5>
-                                <p class="card-text">Aplicaciones móviles nativas y web apps para iOS y Android.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Integración de Bases de Datos -->
-                                <img src="iconos/basededatos.png" alt="Integración de Bases de Datos" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Integración de Bases de Datos</h5>
-                                <p class="card-text">Gestión e integración de bases de datos para proyectos a medida.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="card border-0 shadow-sm text-center">
-                            <div class="card-body">
-                                <!-- Imagen cuadrada de Emails Corporativos -->
-                                <img src="iconos/emailcorporativo.png" alt="Emails Corporativos" class="img-fluid mb-3" style="width: 150px; height: 150px;">
-                                <h5 class="card-title">Emails Corporativos</h5>
-                                <p class="card-text">Configuración de emails profesionales personalizados con tu dominio.</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="requirements max-w-2xl mx-auto">
+                    <!-- Los requisitos se cargarán dinámicamente -->
                 </div>
             </div>
         </section>
-    </section>
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2>Nuestro Portafolio</h2>
-            <p>Explora algunos de nuestros proyectos recientes y descubre cómo hemos ayudado a negocios como el tuyo a destacar en línea.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
-                        <!-- Imagen con border-radius -->
-                        <img src="iconos/moda.jpeg" alt="Rediseño Web para Marca de Moda" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
-                        <h5>Rediseño Web para Marca de Moda</h5>
-                        <p>Renovamos por completo el sitio web de una marca de moda, mejorando su experiencia de usuario y diseño visual.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
-                        <!-- Imagen con border-radius -->
-                        <img src="iconos/tienda.jpeg" alt="Desarrollo E-commerce para Retail" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
-                        <h5>Desarrollo E-commerce para Retail</h5>
-                        <p>Construimos una tienda en línea con integración de pasarelas de pago y gestión de inventario para un cliente de retail.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item shadow-sm p-4 mb-4 bg-white text-center rounded">
-                        <!-- Imagen con border-radius -->
-                        <img src="iconos/startup.jpeg" alt="Aplicación Web Personalizada para Startup" class="img-fluid mb-3 rounded" style="width: 200px; height: 200px;">
-                        <h5>Aplicación Web Personalizada para Startup</h5>
-                        <p>Desarrollamos una solución a medida para una startup, mejorando su productividad y escalabilidad.</p>
-                    </div>
+
+        <section id="blog" class="min-h-screen py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center neon-text section-title">Blog</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Posts se cargarán dinámicamente -->
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Imagen o dibujo moderno alineado a la izquierda -->
-                <div class="col-md-6 text-center text-md-start">
-                    <img src="iconos/astro.png" alt="Dibujo moderno sobre resiliencia" class="img-fluid" style="max-width: 100%;">
-                </div>
-                <!-- Texto alineado a la derecha -->
-                <div class="col-md-6 text-md-end">
-                    <h2>Nuestra Historia</h2>
-                    <p>En NDA Web, somos resilientes. Cada proyecto es una oportunidad de renacer, como el ave fénix, llevando nuestra pasión por las soluciones web a nuevos niveles.</p>
-                    <h5>Martín Oviedo</h5>
-                    <p>Fundador & CEO</p>
-                    <p>Después de superar varios desafíos de salud, NDA Web es el resultado de una visión que renace continuamente, aportando soluciones digitales de calidad y resultados reales. Puedes encontrarnos en <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> y <a href="https://www.google.com/maps" target="_blank">Google Places</a>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center">Contáctanos</h2>
-            <p class="text-center">¿Listo para transformar tu presencia en línea? Escríbenos para hablar sobre tu proyecto.</p>
-            <div class="row align-items-center">
-                <!-- Columna del formulario -->
-                <div class="col-md-6">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="inputName" placeholder="Nombre" required>
-                            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+        </section>
+
+        <section id="contacto" class="min-h-screen py-20 px-4 bg-gray-800">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center neon-text section-title">Contacto</h2>
+                <div class="max-w-2xl mx-auto">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="neon-border" placeholder="Tu nombre">
                         </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico" required>
-                            <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+                        <div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="neon-border" placeholder="tu@email.com">
                         </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" id="inputPhone" placeholder="Teléfono">
-                            <div class="invalid-feedback">Por favor, ingresa un número de teléfono válido.</div>
+                        <div>
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="neon-border" rows="4" placeholder="Tu mensaje"></textarea>
                         </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="inputMessage" rows="5" placeholder="Mensaje" required></textarea>
-                            <div class="invalid-feedback">Por favor, ingresa un mensaje.</div>
-                        </div>
-                        <button type="button" class="btn btn-gradient w-100" onclick="validateAndSendMail()">Enviar Mensaje</button>
+                        <button type="submit" class="w-full px-8 py-3 bg-neon-blue text-gray-900 rounded-lg font-bold hover:bg-neon-purple transition-colors">
+                            Enviar mensaje
+                        </button>
                     </form>
                 </div>
-                <!-- Columna de la imagen -->
-                <div class="col-md-6 text-center">
-                    <img src="iconos/sirena.png" alt="Imagen de Sirena" class="img-fluid" style="max-width: 100%; height: auto;">
-                </div>
             </div>
-            <div class="text-center mt-4">
-                <p>O escríbenos directamente a: <a href="mailto:claciudad@gmail.com">claciudad@gmail.com</a></p>
-            </div>
-        </div>
-    </section>
-    <!-- Map Section -->
-    <section id="map" class="py-5"> 
-        <div class="container text-center">
-            <h2>Nuestra Ubicación</h2>
-            <div id="mapid" style="height: 500px;border-radius:8px;"></div>
-        </div>
-    </section>
-    <!-- Footer Section -->
-    <footer class="text-center py-4">
-        <div class="container">
-            <p><b>&copy; 2023 NDA Webs. Todos los derechos reservados.</b></p>
-            <p>Dirección: Paseo Colón 1011, San Telmo, Buenos Aires, Argentina.</p>
-            <p>Teléfonos: <a href="tel:+541166001811">1166001811</a> | <a href="tel:+542216221261">2216221261</a></p>
-            <p>Horario de atención: Lunes a Viernes, de 10 a 18 hs.</p>
-            <p><a href="#">Términos del Servicio</a> | <a href="#">Política de Privacidad</a></p>
-            <div><a href="#" class="me-2"><i class="fab fa-linkedin"></i></a><a href="#" class="me-2"><i class="fab fa-twitter"></i></a><a href="#" class="me-2"><i class="fab fa-facebook"></i></a><a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 py-12 px-4">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">&copy; 2024 KeepToken. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        // Inicializa el mapa y establece las coordenadas y el zoom
-        var map = L.map('mapid', {
-            zoomControl: false, // Oculta los controles de zoom
-            dragging: false,    // Desactiva el arrastre del mapa
-            scrollWheelZoom: false, // Desactiva el zoom con la rueda del ratón
-            doubleClickZoom: false, // Desactiva el zoom con doble clic
-            boxZoom: false, // Desactiva la opción de zoom por arrastre de caja
-            keyboard: false, // Desactiva la interacción del mapa con el teclado
-            tap: false, // Desactiva el zoom en dispositivos táctiles
-            attributionControl: false // Oculta los créditos del mapa
-        }).setView([-34.619334, -58.368959], 15);
-    
-        // Cargar el tile layer en blanco y negro desde CartoDB
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            maxZoom: 18
-        }).addTo(map);
-    
-        // Crear un icono personalizado con la imagen SVG
-        var customIcon = L.icon({
-            iconUrl: 'iconos/marker.svg',
-            iconSize: [80, 80], // tamaño del marcador
-            iconAnchor: [40, 80], // punto del marcador que se anclará al mapa
-            popupAnchor: [0, -80] // posición del popup en relación al icono
-        });
-    
-        // Agregar el marcador con el icono personalizado
-        L.marker([-34.619334, -58.368959], {icon: customIcon}).addTo(map);
-    </script>
-    <script>
-        const navbarToggle = document.getElementById('navbar-toggle');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.createElement('div');
-        overlay.id = 'overlay';
-        document.body.appendChild(overlay);
-    
-        navbarToggle.addEventListener('click', () => {
-            sideMenu.classList.toggle('open');
-            overlay.style.display = 'block'; // Muestra el fondo semi-transparente
-        });
-    
-        // Cerrar el menú cuando se haga clic en el overlay
-        overlay.addEventListener('click', () => {
-            sideMenu.classList.remove('open');
-            overlay.style.display = 'none'; // Oculta el fondo semi-transparente
-        });
-    </script>
-<script>
-    function validateAndSendMail() {
-        // Obtener los valores de los campos
-        var name = document.getElementById("inputName").value.trim();
-        var email = document.getElementById("inputEmail").value.trim();
-        var phone = document.getElementById("inputPhone").value.trim();
-        var message = document.getElementById("inputMessage").value.trim();
 
-        // Bandera para indicar si el formulario es válido
-        var isValid = true;
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/TUNUMERO" target="_blank" class="whatsapp-button">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
 
-        // Validación del nombre
-        if (name === "") {
-            document.getElementById("inputName").classList.add("is-invalid");
-            isValid = false;
-        } else {
-            document.getElementById("inputName").classList.remove("is-invalid");
-        }
-
-        // Validación del correo electrónico
-        if (!validateEmail(email)) {
-            document.getElementById("inputEmail").classList.add("is-invalid");
-            isValid = false;
-        } else {
-            document.getElementById("inputEmail").classList.remove("is-invalid");
-        }
-
-        // Validación del teléfono (opcional)
-        if (phone !== "" && !validatePhone(phone)) {
-            document.getElementById("inputPhone").classList.add("is-invalid");
-            isValid = false;
-        } else {
-            document.getElementById("inputPhone").classList.remove("is-invalid");
-        }
-
-        // Validación del mensaje
-        if (message === "") {
-            document.getElementById("inputMessage").classList.add("is-invalid");
-            isValid = false;
-        } else {
-            document.getElementById("inputMessage").classList.remove("is-invalid");
-        }
-
-        // Si todo es válido, enviar el correo
-        if (isValid) {
-            sendMail(name, email, phone, message);
-        }
-    }
-
-    function validateEmail(email) {
-        // Expresión regular para validar correos electrónicos
-        var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return re.test(email);
-    }
-
-    function validatePhone(phone) {
-        // Verificar que el teléfono contenga solo dígitos
-        var re = /^[0-9]+$/;
-        return re.test(phone);
-    }
-
-    function sendMail(name, email, phone, message) {
-        var subject = "Contacto de " + name;
-        var body = "Nombre: " + name + "\n" +
-                   "Correo: " + email + "\n" +
-                   "Teléfono: " + phone + "\n\n" +
-                   "Mensaje:\n" + message;
-
-        var mailtoLink = "mailto:claciudad@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-
-        window.open(mailtoLink);
-    }
-</script>
+    <script src="app.js"></script>
 </body>
+</html> 
